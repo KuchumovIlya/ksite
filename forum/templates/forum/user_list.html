@@ -1,0 +1,30 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+<p> <a href="/forum/"> forum </a> </p>
+
+{% if username %}
+    <p> you are {{ username }} </p>
+    <p> <a href="/forum/logout/"> logout </a> </p>
+{% else %}
+    <p> you are guest </p>
+    <p> <a href="/forum/authentication/"> login </a> </p>
+    <p> <a href="/forum/registration/"> register </a> </p>
+{% endif %}
+
+{% if error_message %}
+    {{ error_message }}
+{% endif %}
+
+All users:
+<ul>
+    {% for user in user_list %}
+        <li>
+            {{ user.username }}
+            {% if username == "admin" or username == user.username %}
+                {% if user.username != "admin" %}
+                    <a href="/forum/delete_user/{{ user.username }}"> delete </a>
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

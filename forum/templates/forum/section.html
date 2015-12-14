@@ -1,0 +1,36 @@
+<p> <a href="/forum/"> forum </a> </p>
+<p> <a href="/forum/{{ section.section_id }}"> {{ section.section_name }} </a> </p>
+
+{% if username %}
+    <p> you are {{ username }} </p>
+    <p> <a href="/forum/logout/"> logout </a> </p>
+{% else %}
+    <p> you are guest </p>
+    <p> <a href="/forum/authentication/"> login </a> </p>
+    <p> <a href="/forum/registration/"> register </a> </p>
+{% endif %}
+<p> <a href="/forum/user_list/"> user list </a> </p>
+
+{% if error_message %}
+    {{ error_message }}
+{% endif %}
+
+Section topics:
+<ul>
+    {% for topic in topics_list %}
+        <li>
+            <a href="/forum/{{ section_id }}/{{ topic.topic_id }}"> {{ topic.topic_name }} </a>
+            {% if username == "admin" %}
+                ::: <a href="/forum/delete_topic/{{ section.section_id }}/{{ topic.topic_id }}"> delete </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+{% if username %}
+    <form action="/forum/{{ section.section_id }}/add_topic/" method="post">
+        {% csrf_token %}
+        <p> <input type="text" name="topic_name"> </p>
+        <p> <input type="submit" value="create new topic"> </p>
+    </form>
+{% endif %}

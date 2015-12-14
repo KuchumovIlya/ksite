@@ -1,0 +1,40 @@
+<script src='https://www.google.com/recaptcha/api.js'></script>
+
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'forum/index_style.css' %}" />
+
+<p> <a href="/forum/"> forum </a> </p>
+
+{% if username %}
+    <p> you are {{ username }} </p>
+    <p> <a href="/forum/logout/"> logout </a> </p>
+{% else %}
+    <p> you are guest </p>
+    <p> <a href="/forum/authentication/"> login </a> </p>
+    <p> <a href="/forum/registration/"> register </a> </p>
+{% endif %}
+<p> <a href="/forum/user_list/"> user list </a> </p>
+
+{% if error_message %}
+    {{ error_message }}
+{% endif %}
+
+<p> Forum sections: </p>
+<ul>
+    {% for section in sections_list %}
+        <li>
+            <a href="/forum/{{ section.section_id }}/">{{ section.section_name }}</a>
+            {% if username == "admin" %}
+                ::: <a href="/forum/delete_section/{{ section.section_id }}"> delete </a>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+{% ifequal username "admin" %}
+    <form action="/forum/add_section/" method="post">
+        {% csrf_token %}
+        <p> <input type="text" name="section_name"> </p>
+        <p> <input type="submit" value="create new section"> </p>
+    </form>
+{% endifequal %}
