@@ -1,0 +1,96 @@
+a {
+    color: #3E92CC;
+    text-decoration: none;
+}
+
+a:visited {
+  color: #3E92CC;
+}
+
+a.redLink {
+	color: red;
+}
+
+a.redLink:visited {
+	color: red;
+}
+
+.upPanel {
+	width: 100%;
+	height: 50px;
+	padding: 0px;
+}
+
+.navItem {
+	line-height: 30px;
+	padding: 10px;
+	font-size: 20px;
+	display: inline-block;
+	text-align: center;
+	float: left;
+	font-size: 30px;
+	border-left: 2px solid #D0CD94;
+}
+
+.logItem {
+	line-height: 30px;
+	padding: 10px;
+	font-size: 20px;
+	display: inline-block;
+	text-align: center;
+	float: right;
+	font-size: 30px;
+	border-right: 2px solid #D0CD94;
+}
+
+.pageName {
+	width: 100%;
+	height: 50px;
+	padding: 0px;
+	margin: 0px;
+	text-align: left;
+	font-size: 30px;
+	color: #77A545;
+	border-bottom: 2px solid #D0CD94;
+}
+
+.nameList {
+	list-style-type: none;
+	padding: 0px;
+}
+
+.nameItem {
+	color: #3E92CC;
+	font-size: 20px;
+}
+
+.mesWrap {
+	width: 500px;
+	border: 2px solid #D0CD94;
+	margin-top: 10px;
+}
+
+.mesHeader {
+	font-size: 20px;
+}
+
+.mesText {
+	font-size: 20px;
+	border-top: 2px solid #D0CD94;
+}
+
+.modification_div {
+	font-size: 20px;
+	padding: 0px;
+	margin: 0px;
+}
+
+.kForm {
+	font-size: 20px;
+	color: #3E92CC;
+}
+
+.err {
+	padding-top: 10px;
+	color: red;
+}

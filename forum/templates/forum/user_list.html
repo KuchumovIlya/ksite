@@ -1,28 +1,35 @@
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
-<p> <a href="/forum/"> forum </a> </p>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'forum/base_style.css' %}" />
 
-{% if username %}
-    <p> you are {{ username }} </p>
-    <p> <a href="/forum/logout/"> logout </a> </p>
-{% else %}
-    <p> you are guest </p>
-    <p> <a href="/forum/authentication/"> login </a> </p>
-    <p> <a href="/forum/registration/"> register </a> </p>
-{% endif %}
+<ul class="upPanel">
+    <li class="navItem"> <a href="/forum/"> forum </a> </li>
+
+    {% if username %}
+    <li class="logItem"> you are {{ username }} </li>
+    <li class="logItem"> <a href="/forum/logout/"> logout </a> </li>
+    {% else %}
+        <li class="logItem"> you are guest </li>
+        <li class="logItem"> <a href="/forum/authentication/"> login </a> </li>
+        <li class="logItem"> <a href="/forum/registration/"> register </a>  </li>
+    {% endif %}
+    <li class="logItem"> <a href="/forum/user_list/"> user list </a> </li>
+</ul>
 
 {% if error_message %}
     {{ error_message }}
 {% endif %}
 
-All users:
-<ul>
+<div class="pageName"> Users </div>
+
+<ul class="nameList">
     {% for user in user_list %}
-        <li>
+        <li class="nameItem">
             {{ user.username }}
             {% if username == "admin" or username == user.username %}
                 {% if user.username != "admin" %}
-                    <a href="/forum/delete_user/{{ user.username }}"> delete </a>
+                    ::: <a class="redLink" href="/forum/delete_user/{{ user.username }}"> delete </a>
                 {% endif %}
             {% endif %}
         </li>

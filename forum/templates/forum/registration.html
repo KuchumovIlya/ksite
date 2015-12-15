@@ -1,14 +1,19 @@
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-<p> <a href="/forum/"> forum </a> </p>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'forum/base_style.css' %}" />
+
+<ul class="upPanel">
+    <li class="navItem"> <a href="/forum/"> forum </a> </li>
+</ul>
+
+<div class="pageName"> Registration page </div>
 
 {% if error_message %}
-    {{ error_message }}
+    <div class="err"> {{ error_message }} </div> 
 {% endif %}
 
-<p> Registration page </p>
-
-<form action="/forum/registration_authorization/" method="post">
+<form class="kForm" action="/forum/registration_authorization/" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <p> <input type="submit" value="submit"> </p>

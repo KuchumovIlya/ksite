@@ -1,12 +1,17 @@
-<p> <a href="/forum/"> forum </a> </p>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'forum/base_style.css' %}" />
+
+<ul class="upPanel">
+    <li class="navItem"> <a href="/forum/"> forum </a> </li>
+</ul>
+
+<div class="pageName"> Login page </div>
 
 {% if error_message %}
-    {{ error_message }}
+    <div class="err"> {{ error_message }} </div> 
 {% endif %}
 
-<p> Login page </p>
-
-<form action="/forum/authorization/" method="post">
+<form class="kForm" action="/forum/authorization/" method="post">
     {% csrf_token %}
     <p> <label>username:</label> <input type="text" name="username"> </p>
     <p> <label>password:</label> <input type="password" name="password"> </p>

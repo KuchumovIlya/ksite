@@ -2,50 +2,53 @@
 
 {% load staticfiles %}
 <script src="{% static 'forum/topic_script.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'forum/base_style.css' %}" />
 
-<p> <a href="/forum/"> forum </a> </p>
-<p> <a href="/forum/{{ section.section_id }}"> {{ section.section_name }} </a> </p>
-<p> <a href="/forum/{{ section.section_id }}/{{ topic.topic_id }}"> {{ topic.topic_name }} </a> </p>
+<ul class="upPanel">
+    <li class="navItem"> <a href="/forum/"> forum </a> </li>
+    <li class="navItem"> <a href="/forum/{{ section.section_id }}"> {{ section.section_name }} </a> </li>
+    <li class="navItem"> <a href="/forum/{{ section.section_id }}/{{ topic.topic_id }}"> {{ topic.topic_name }} </a> </li>
 
-{% if username %}
-    <p> you are {{ username }} </p>
-    <p> <a href="/forum/logout/"> logout </a> </p>
-{% else %}
-    <p> you are guest </p>
-    <p> <a href="/forum/authentication/"> login </a> </p>
-    <p> <a href="/forum/registration/"> register </a> </p>
-{% endif %}
-<p> <a href="/forum/user_list/"> user list </a> </p>
+    {% if username %}
+    <li class="logItem"> you are {{ username }} </li>
+    <li class="logItem"> <a href="/forum/logout/"> logout </a> </li>
+    {% else %}
+        <li class="logItem"> you are guest </li>
+        <li class="logItem"> <a href="/forum/authentication/"> login </a> </li>
+        <li class="logItem"> <a href="/forum/registration/"> register </a>  </li>
+    {% endif %}
+    <li class="logItem"> <a href="/forum/user_list/"> user list </a> </li>
+</ul>
 
 {% if error_message %}
     {{ error_message }}
 {% endif %}
 
+<div class="pageName"> Messages </div>
+
 <div class="modification_div" topic_id="{{topic.topic_id}}">
-    <a href="/forum/{{ section.section_id }}/{{ topic.topic_id }}"> to update topic click here </a>
+    <a class="redLink" href="/forum/{{ section.section_id }}/{{ topic.topic_id }}"> to update topic click here </a>
 </div>
 
-Messages:
-<ul>
-    {% for message in message_list %}
-        <li>
-            {{ message.user_name }}({{ message.publication_date }}): {{ message.message_text }}
-            {% if username == "admin" or message.user_name == username %}
-                :::
-                <a href="/forum/delete_message/{{ section.section_id }}/{{ topic.topic_id }}/{{ message.message_id }}">
+{% for message in message_list %}
+    <div class="mesWrap">
+        <div class="mesHeader"> {{ message.user_name }} </div>
+        <div class="mesHeader"> {{ message.publication_date }} </div>
+        {% if username == "admin" or message.user_name == username %}
+            <div class="mesHeader">
+                <a class="redLink" href="/forum/delete_message/{{ section.section_id }}/{{ topic.topic_id }}/{{ message.message_id }}">
                     delete
-                </a>
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
+                </a> 
+            </div>
+        {% endif %}
+        <div class="mesText"> {{ message.message_text }} </div>
+    </div>
+{% endfor %}
 
 {% if username %}
     <form action="/forum/{{ section_id }}/{{ topic_id }}/submit_message/" method="post">
         {% csrf_token %}
-        <p> <textarea rows="10" cols="45" name="message_text"></textarea> </p>
-        <p> <input type="submit" value="submit"> </p>
+        <p> <textarea rows="10" cols="80" name="message_text"></textarea> </p>
+        <p> <input type="submit" value="add message"> </p>
     </form>
-{% else %}
-    guests cannot write messages
 {% endif %}
