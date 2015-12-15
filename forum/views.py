@@ -195,7 +195,7 @@ def _send_confirming_token(username):
     mime['From'] = 'ksitesender@yandex.ru'
     mime['To'] = email
     mime['Subject'] = 'access token'
-    url = 'http://127.0.0.1:8000' + reverse('forum:confirm')
+    url = 'http://ilya.kolambda.com/' + reverse('forum:confirm')
     url += '?token={}&username={}'.format(token, username)
     message = 'To confirm your email click here: {}'.format(url)
     mime.attach(MIMEText(message))
