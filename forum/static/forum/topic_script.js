@@ -15,7 +15,7 @@ $(document).ready(function() {
             data: {  }
         })
         .done(function(data) {
-            last_modification_date = data();
+            last_modification_date = data;
         });
 
     setInterval(function () {
