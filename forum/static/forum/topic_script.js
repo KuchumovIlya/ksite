@@ -9,6 +9,15 @@ last_modification_date = null;
 $(document).ready(function() {
     $(".modification_div").hide();
 
+     $.ajax({
+            method: 'GET',
+            url: get_url(),
+            data: {  }
+        })
+        .done(function(data) {
+            last_modification_date = data();
+        });
+
     setInterval(function () {
         $.ajax({
             method: 'GET',
@@ -16,9 +25,7 @@ $(document).ready(function() {
             data: {  }
         })
         .done(function(data) {
-            if (last_modification_date == null)
-                last_modification_date = data;
-            else if (last_modification_date != data)
+            if (last_modification_date != data)
                $(".modification_div").show();
         });
     }, 3000);

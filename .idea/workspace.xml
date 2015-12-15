@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0558fd59-0906-4758-bd59-4190b7602965" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forum/views.py" afterPath="$PROJECT_DIR$/forum/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/forum/static/forum/topic_script.js" afterPath="$PROJECT_DIR$/forum/static/forum/topic_script.js" />
     </list>
     <ignored path="ksite.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +37,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/forum/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34687954" vertical-offset="2716" max-vertical-offset="5280">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2716" max-vertical-offset="5280">
               <caret line="197" column="36" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
@@ -59,11 +59,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="topic_script.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="topic_script.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/forum/static/forum/topic_script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+            <state vertical-scroll-proportion="0.3918723" vertical-offset="0" max-vertical-offset="689">
+              <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -82,9 +82,9 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/forum/static/forum/topic_script.js" />
         <option value="$PROJECT_DIR$/ksite/settings.py" />
         <option value="$PROJECT_DIR$/forum/views.py" />
+        <option value="$PROJECT_DIR$/forum/static/forum/topic_script.js" />
       </list>
     </option>
   </component>
@@ -272,14 +272,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/forum/static/forum/topic_script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ksite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1710">
@@ -290,11 +282,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/forum/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34687954" vertical-offset="2716" max-vertical-offset="5280">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2716" max-vertical-offset="5280">
           <caret line="197" column="36" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/forum/static/forum/topic_script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3918723" vertical-offset="0" max-vertical-offset="689">
+          <caret line="18" column="11" selection-start-line="18" selection-start-column="11" selection-end-line="18" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
